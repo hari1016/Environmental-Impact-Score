@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Environmental Score</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <h1>Environmental Impact Score</h1>
+    <p>Welcome to EIS calculator!</p>
+    <p>Enter a food product to evaluate its environmental impact:</p>
+    <form method="POST">
+        {% csrf_token %}
+        <input type="text" name="productName" id="productName" placeholder="Product Name" required>
+        <button type="submit">Evaluate</button>
+    </form>
+
+    {% if score >= 0%}
+    <p>The environmental impact score of "{{ product_name }}" is: {{ score|add:"1" }}</p>
+    {% endif %}
+
+    <div class="scale-container">
+        <div id="scale" class="scale">
+            <div id="scale-arrow" class="scale-arrow"></div>
+            <span id="scale-low" class="scale-point">Low</span>
+            <span id="scale-medium" class="scale-point">Medium</span>
+            <span id="scale-high" class="scale-point">High</span>
+        </div>
+    </div>
+
+    <script>
+        // Update scale function
+        function updateScale(score) {
+          // Reset scale classes
+          document.getElementById('scale-low').classList.remove('active');
+          document.getElementById('scale-medium').classList.remove('active');
+          document.getElementById('scale-high').classList.remove('active');
+
+          // Arrow adjustment
+          const arrow = document.getElementById('scale-arrow');
+          arrow.classList.remove('low', 'medium', 'high');
+
+          // Activate the current score on the scale
+          if(score == 0) { // 'Low'
+            document.getElementById('scale-low').classList.add('active');
+            arrow.classList.add('low');
+          } else if(score == 1) { // 'Medium'
+            document.getElementById('scale-medium').classList.add('active');
+            arrow.classList.add('medium');
+          } else if(score == 2){ // 'High'
+            document.getElementById('scale-high').classList.add('active');
+            arrow.classList.add('high');
+          }
+        }
+
+        // Get the score from the template (make sure {{ score }} is being passed in Django)
+        const score = parseFloat({{ score }});  // Add 1 to the score in JavaScript
+        updateScale(score); // Call the function to update the scale based on the score
+      </script>
+</body>
+</html>
