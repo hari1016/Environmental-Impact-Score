@@ -39,5 +39,5 @@ We developed this platform to help consumers make informed choices in their dail
    - The calculated Environmental Impact Scores are retrieved by the Django server and displayed to the user via an interactive and animated slider on the website. This interface provides a seamless experience, allowing users to easily understand and engage with the product’s environmental footprint.
 
 ## Future Plans
-Expanded Dataset: Add more products and industries to provide a broader range of environmental impact scores.
-Recommendation Engine: Suggest eco-friendly alternatives based on the score.
+   - Expanded Dataset: Add more products and industries to provide a broader range of environmental impact scores.
+   - Recommendation Engine: Suggest eco-friendly alternatives based on the score.
