@@ -20,5 +20,5 @@ from envscore import views  # Import the view from envscore
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('evaluate/', views.evaluate_product, name='evaluate_product'),  # Add the URL for evaluate
+    path('', views.evaluate_product, name='evaluate_product'),  # Add the URL for evaluate
 ]
