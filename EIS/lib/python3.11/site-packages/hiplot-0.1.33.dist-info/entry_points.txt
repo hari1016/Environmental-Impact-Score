@@ -1,0 +1,4 @@
+[console_scripts]
+hiplot = hiplot.server:run_server_main
+hiplot-render = hiplot.render:hiplot_render_main
+
