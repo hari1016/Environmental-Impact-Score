@@ -3,6 +3,9 @@
 ## Overview
 This project aims to provide consumers with a clear understanding of the environmental impact of products by giving each product a score based on factors such as carbon emissions, water usage, and waste generated throughout its lifecycle. The goal is to empower individuals to make eco-conscious purchasing decisions.
 
+The website is live and can be accessed here: [Environmental Impact Score for Products](https://eis-calculator-0c4f7882c679.herokuapp.com/).
+
+
 ## Features
 - **Environmental Impact Score**: Get a score for any product by entering its name. The score is calculated using various environmental factors.
 - **Custom Machine Learning Model**: The core engine behind the score is a fine-tuned OpenAI model trained on environmental data specific to various products and industries.
